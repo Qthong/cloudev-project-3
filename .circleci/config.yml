@@ -44,6 +44,7 @@ jobs:
           command: |
             # Your code here
             cd frontend
+            npm audit fix
             npm install
             npm run build
             exit 1
@@ -63,6 +64,7 @@ jobs:
           command: |
              # Your code here
              cd backend
+             npm audit fix
              npm install
              npm run build
              exit 1
@@ -81,6 +83,7 @@ jobs:
           name: Run front-end test
           command: |
             cd frontend
+            npm audit fix
             npm install
             npm run test
                 
@@ -95,6 +98,7 @@ jobs:
           name: Run backend test
           command: |
             cd backend
+            npm audit fix
             npm install
             npm run test
             
