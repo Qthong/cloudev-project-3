@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
     "module": "commonjs",
     "declaration": true,
     "noImplicitAny": false,
@@ -11,7 +10,6 @@
     "experimentalDecorators": true,
     "target": "es6",
     "sourceMap": true,
-    "strict": false,
     "outDir": "./dist",
     "baseUrl": "./src"
   },
