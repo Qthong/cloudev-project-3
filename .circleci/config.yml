@@ -44,8 +44,8 @@ jobs:
           command: |
             # Your code here
             cd frontend
-            npm audit fix
             npm install
+            npm audit fix
             npm run build
             exit 1
       - save_cache:
@@ -64,8 +64,9 @@ jobs:
           command: |
              # Your code here
              cd backend
-             npm audit fix
+             
              npm install
+             npm audit fix
              npm run build
              exit 1
       - save_cache:
@@ -83,8 +84,9 @@ jobs:
           name: Run front-end test
           command: |
             cd frontend
-            npm audit fix
+       
             npm install
+            npm audit fix
             npm run test
                 
   test-backend:
@@ -98,8 +100,9 @@ jobs:
           name: Run backend test
           command: |
             cd backend
-            npm audit fix
+            
             npm install
+            npm audit fix
             npm run test
             
   # scan-frontend:
