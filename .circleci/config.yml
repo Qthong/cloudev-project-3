@@ -44,6 +44,8 @@ jobs:
           command: |
             # Your code here
             cd frontend
+            rm -rf node_modules
+            npm install  ts-node typescript '@types/node' --save
             npm install
             npm run build
             exit 1
@@ -63,6 +65,9 @@ jobs:
           command: |
              # Your code here
              cd backend
+             rm -rf node_modules
+             npm install  ts-node typescript '@types/node' --save
+
              npm install
              npm run build
              exit 1
