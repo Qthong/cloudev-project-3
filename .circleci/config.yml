@@ -34,7 +34,7 @@ commands:
 jobs:
   build-frontend:
     docker:
-      - image: circleci/node:14.18.2-buster-browsers-legacy
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -54,7 +54,7 @@ jobs:
 
   build-backend:
     docker:
-      - image: circleci/node:14.18.2-buster-browsers-legacy
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -75,7 +75,7 @@ jobs:
 
   test-frontend:
     docker:
-      - image: circleci/node:14.18.2-buster-browsers-legacy
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
@@ -91,7 +91,7 @@ jobs:
                 
   test-backend:
     docker:
-      - image: circleci/node:14.18.2-buster-browsers-legacy
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
