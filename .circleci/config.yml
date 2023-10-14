@@ -44,7 +44,7 @@ jobs:
           command: |
             # Your code here
             cd frontend
-            rm -rf node_modules package-lock.json
+            npm install -g ts-node typescript '@types/node'
             npm install
             npm run build
             exit 1
@@ -64,7 +64,7 @@ jobs:
           command: |
              # Your code here
              cd backend
-             rm -rf node_modules package-lock.json
+             npm install -g ts-node typescript '@types/node'
              npm install
              npm run build
              exit 1
