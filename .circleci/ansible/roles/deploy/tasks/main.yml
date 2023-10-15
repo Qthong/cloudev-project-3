@@ -2,7 +2,7 @@
 
 - name: copy zip file
   copy:
-    src: artifact.tar.gz
+    src: files/artifact.tar.gz
     dest: ~/artifact.tar.gz
     backup: yes
 
