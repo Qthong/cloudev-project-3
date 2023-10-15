@@ -34,54 +34,43 @@ commands:
 jobs:
   build-frontend:
     docker:
-      - image: node:14.12
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
-          keys: [frontend-cache]
+          keys: [frontend-build]
       - run:
           name: Build front-end
           command: |
             # Your code here
-            cd frontend
-            rm -rf node_modules
-            npm install  ts-node typescript '@types/node' --save
-            npm install
-            npm run build
             exit 1
       - save_cache:
           paths: [frontend/node_modules]
-          key: frontend-cache
+          key: frontend-build
 
   build-backend:
     docker:
-      - image: node:14.12
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-cache]
+          keys: [backend-build]
       - run:
           name: Back-end build
           command: |
              # Your code here
-             cd backend
-             rm -rf node_modules
-             npm install  ts-node typescript '@types/node' --save
-
-             npm install
-             npm run build
              exit 1
       - save_cache:
           paths: [backend/node_modules]
-          key: backend-cache
+          key: backend-build
 
   test-frontend:
     docker:
-      - image: node:14.12
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
-          keys: [frontend-cache]
+          keys: [frontend-build]
       - run:
           name: Run front-end test
           command: |
@@ -93,11 +82,11 @@ jobs:
                 
   test-backend:
     docker:
-      - image: node:14.12
+      - image: circleci/node:13.8.0
     steps:
       - checkout
       - restore_cache:
-          keys: [backend-cache]
+          keys: [backend-build]
       - run:
           name: Run backend test
           command: |
