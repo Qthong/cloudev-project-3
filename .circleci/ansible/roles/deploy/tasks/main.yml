@@ -2,7 +2,7 @@
 
 - name: copy zip file
   ansible.builtin.copy:
-    src: files/artifact.tar.gz
+    src: artifact.tar.gz
     dest: ~/artifact.tar.gz
     follow: no
 
