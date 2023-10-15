@@ -219,6 +219,7 @@ jobs:
           command: |
             yum install -y tar gzip
             yum -y install curl
+            curl -sL https://rpm.nodesource.com/setup_14.x | bash -
             yum install -y nodejs
       - run:
           name: Get backend url
@@ -266,6 +267,7 @@ jobs:
             mkdir -p .circleci/ansible/roles/deploy/files
             mv artifact.tar.gz .circleci/ansible/roles/deploy/files
             cd .circleci/ansible
+            ls -la .circleci/ansible/roles/deploy/files
             echo "Contents  of the inventory.txt file is -------"
             cat inventory.txt
             pwd
