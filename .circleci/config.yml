@@ -267,7 +267,7 @@ jobs:
             mkdir -p .circleci/ansible/roles/deploy/files
             mv artifact.tar.gz .circleci/ansible/roles/deploy/files
             cd .circleci/ansible
-            ls -la .circleci/ansible/roles/deploy/files
+            ls -la roles/deploy/files
             echo "Contents  of the inventory.txt file is -------"
             cat inventory.txt
             pwd
