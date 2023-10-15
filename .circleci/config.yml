@@ -220,8 +220,8 @@ jobs:
             yum install -y tar gzip
             yum install -y python3.7
             yum -y install curl
-            curl -sL https://rpm.nodesource.com/setup_14.x | bash -
-            yum install -y nodejs
+            yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+            yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
       - run:
           name: Get backend url
           command: |
