@@ -1,8 +1,11 @@
 ---
-
+- name: check file
+  shell: | 
+    ls -la
+    find . -name artifact.tar.gz
 - name: copy zip file
   copy:
-    src: files/artifact.tar.gz
+    src: roles/configure-server/tasks/artifact.tar.gz
     dest: ~/artifact.tar.gz
     backup: yes
 
