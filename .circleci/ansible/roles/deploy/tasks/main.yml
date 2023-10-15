@@ -1,10 +1,10 @@
 ---
 
 - name: copy zip file
-  ansible.builtin.copy:
+  copy:
     src: artifact.tar.gz
     dest: ~/artifact.tar.gz
-    follow: no
+    backup: yes
 
 - name: extract file
   shell: | 
