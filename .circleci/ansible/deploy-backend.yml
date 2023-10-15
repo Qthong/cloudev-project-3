@@ -1,4 +1,4 @@
-- name: "configuration play." 
+- name: configuration
   hosts: web
   user: ubuntu
   gather_facts: false
