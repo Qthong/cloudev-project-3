@@ -287,6 +287,8 @@ jobs:
           command: |
             yum install -y tar gzip
             yum -y install curl
+            yum install https://rpm.nodesource.com/pub_16.x/nodistro/repo/nodesource-release-nodistro-1.noarch.rpm -y
+            yum install nodejs -y --setopt=nodesource-nodejs.module_hotfixes=1
       - run:
           name: Backend smoke test.
           command: |
