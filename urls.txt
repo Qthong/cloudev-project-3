@@ -1,5 +1,5 @@
 github: https://github.com/Qthong/cloudev-project-3
-URL02: http://udapeople-e08cfd8.s3-website-us-east-1.amazonaws.com/#/employees
+URL02: http://udapeople-85fb6c2.s3-website-us-east-1.amazonaws.com/#/employees
 cloudfront: der39vur3435b.cloudfront.net	
 backend ec2: http://34.230.21.157:3030/api/status
 Prometheus:

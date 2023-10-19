@@ -24,11 +24,11 @@ commands:
           when: on_fail
           command: |
             SUCCESS=$(curl --insecure https://kvdb.io/GjaC9nU9wy5YHGFsMYmuCs/migration_<< parameters.workflowid >>)
-            if(( $SUCCESS==1 )); 
+            if (( $SUCCESS == 1 ));
             then
-                cd ~/project/backend
-                npm install
-                npm run migration:revert
+              cd ~/project/backend
+              npm install
+              npm run migration:revert
             fi
             
 jobs:
@@ -123,7 +123,6 @@ jobs:
             cd backend
             npm install
             ## npm install oauth-sign@^0.9.0
-            
             npm audit fix --audit-level=critical --force
 
   deploy-infrastructure:
