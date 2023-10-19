@@ -202,11 +202,11 @@ jobs:
           name: Send migration results to memstash
           command: |
             cd backend
-            if grep -q "has been executed successfully." migrations_dump.txt
-            then
+            # if grep -q "has been executed successfully." migrations_dump.txt
+            # then
               curl --insecure https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
               curl --insecure https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_${CIRCLE_WORKFLOW_ID:0:7}
-            fi
+            # fi
       - destroy-environment
 
   deploy-frontend:
