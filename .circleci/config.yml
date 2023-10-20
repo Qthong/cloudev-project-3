@@ -299,7 +299,7 @@ jobs:
             echo "${API_URL}"
             if curl "${API_URL}/api/status" | grep "ok"
             then
-              return 0
+              return 1
             else
               return 1
             fi
@@ -361,7 +361,7 @@ jobs:
                       --stack-status-filter CREATE_COMPLETE --no-paginate --output text)) 
             echo Stack names: "${STACKS[@]}"
 
-            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" =~ "${OldWorkflowID}" ]]
+            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]]
             then
                 echo "Deleting"
                 aws s3 rm "s3://udapeople-${OldWorkflowID}" --recursive 
