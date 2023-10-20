@@ -23,7 +23,7 @@ commands:
           name: Revert migrations
           when: on_fail
           command: |
-            curl --insecure https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_${CIRCLE_WORKFLOW_ID:0:7} > data.txt
+            echo https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_${CIRCLE_WORKFLOW_ID:0:7} 
 
             cat data.txt
             SUCCESS=$(cat data.txt)
