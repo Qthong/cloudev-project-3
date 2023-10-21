@@ -326,7 +326,7 @@ jobs:
           command: |
             yum -y install tar gzip awscli curl npm nodejs
       - attach_workspace:
-          at: ~/
+          at: .
       - run:
           name: Update cloudfront distribution
           command: |
