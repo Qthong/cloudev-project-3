@@ -16,24 +16,19 @@ commands:
   revert-migrations:
     description: Revert the last migration if successfully run in the current workflow.
     parameters:
-      workflowid:
+      workflow_id:
         type: string   
     steps:
       - run:
           name: Revert migrations
           when: on_fail
           command: |
-            apk add --update curl 
-            curl  https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_${CIRCLE_WORKFLOW_ID:0:7} > data.txt
-
-            cat data.txt
-            SUCCESS=$(cat data.txt)
-
-            if (( $SUCCESS == 1 ));
+            SUCCESS=$(curl --insecure  https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_<< parameters.workflow_id >>)
+            if(( $SUCCESS==1 )); 
             then
-              cd ~/project/backend
-              npm install
-              npm run migration:revert
+                cd ~/project/backend
+                npm install
+                npm run migration:revert
             fi
             
 jobs:
@@ -244,7 +239,7 @@ jobs:
             aws s3 cp dist s3://udapeople-${CIRCLE_WORKFLOW_ID:0:7} --recursive
       - destroy-environment
       - revert-migrations:
-          workflowid: ${CIRCLE_WORKFLOW_ID:0:7}
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
                     
   deploy-backend:
     docker:
@@ -280,7 +275,7 @@ jobs:
             ansible-playbook -i inventory.txt deploy-backend.yml
       - destroy-environment
       - revert-migrations:
-          workflowid: ${CIRCLE_WORKFLOW_ID:0:7}
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
   smoke-test:
     docker:
@@ -320,7 +315,7 @@ jobs:
             fi
       - destroy-environment
       - revert-migrations:
-          workflowid: ${CIRCLE_WORKFLOW_ID:0:7}
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7}
 
   cloudfront-update:
     docker:
@@ -344,7 +339,7 @@ jobs:
               --tags project=udapeople
       - destroy-environment
       - revert-migrations:
-          workflowid: ${CIRCLE_WORKFLOW_ID:0:7} 
+          workflow_id: ${CIRCLE_WORKFLOW_ID:0:7} 
 
   cleanup:
     docker:
