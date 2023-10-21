@@ -23,7 +23,7 @@ commands:
           name: Revert migrations
           when: on_fail
           command: |
-            yum install -y curl 
+            apk add --update curl 
             curl  https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_${CIRCLE_WORKFLOW_ID:0:7} > data.txt
 
             cat data.txt
