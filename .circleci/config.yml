@@ -24,8 +24,7 @@ commands:
           when: on_fail
           command: |
             SUCCESS=$(curl --insecure  https://kvdb.io/ABGVWhTCJtZVMZHPTMJGJ6/migration_<< parameters.workflow_id >>)
-            if(( $SUCCESS==1 )); 
-            then
+            if [[ $SUCCESS -eq 1 ]]; then
                 cd ~/project/backend
                 npm install
                 npm run migration:revert
